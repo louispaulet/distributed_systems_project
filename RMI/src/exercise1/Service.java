@@ -4,20 +4,22 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-/**
- * Created by Quentin on 27/12/2016.
- */
+
 public class Service {
 
+	//contient la méthode de réplication
     private String replication;
 
+    //dit si le service est master ou secondaire (backup)
     private Boolean master = false;
 
+    //passage du service ?
     private Remote remote;
-
+    
+    //liste des copies distantes
     private List<Remote> copies;
 
-
+    //getters & setters
     public Boolean getMaster() {
         return master;
     }
@@ -45,18 +47,19 @@ public class Service {
     public void setMaster(Boolean _master) {
         master = _master;
     }
-
+    
+    //constructeur
     public Service(String _replication, Boolean _master, Remote _remote) {
         replication = _replication;
         master = _master;
         remote = _remote;
     }
-
+    //constructeur 2
     public Service(Remote _remote){
         replication = "None";
         remote = _remote;
     }
-
+    //setter : implementation de l'interface
     public void setPassiveService() throws RemoteException {
         ((IPassive)remote).setService(this);
     }

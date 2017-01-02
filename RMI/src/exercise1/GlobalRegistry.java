@@ -5,24 +5,24 @@ import java.rmi.*;
 import java.rmi.server.ServerCloneException;
 import java.util.*;
 
-/**
- * Created by Quentin on 12/12/2016.
- */
 
-
+//creation de GlobalRegistry
 public class GlobalRegistry implements java.rmi.registry.Registry {
-    //  CONSTANT
-    //  GLOBAL REGISTRY PORT
+    //  definition du port de ce registre
     public static final int GLOBAL_REGISTRY_PORT = 1098;
 
+    //map qui associe un string à un registry local
     private Map<String, Map<String, Service>> remotes = new HashMap<>();
+    // ?
     private Map<String, Integer> roundIndex = new HashMap<>();
 
     @Override
     public Remote lookup(String name) throws RemoteException, NotBoundException, AccessException {
-        int index = roundIndex.get(name) + 1;
+        // ?
+    	int index = roundIndex.get(name) + 1;
+    	// ?
         List<String> tags = new ArrayList(remotes.get(name).keySet());
-
+        // ?
         Service service = remotes.get(name).get(tags.get(0).toString());
 
         if(service.getReplication() == "Passive"){

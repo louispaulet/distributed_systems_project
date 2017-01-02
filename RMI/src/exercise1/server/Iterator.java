@@ -9,7 +9,7 @@ import java.security.Provider;
 import java.util.List;
 
 /**
- * Created by Quentin on 27/12/2016.
+ * Contains the usual methods and Plus() which increements the value of all copies
  */
 public class Iterator implements IIterator {
 
@@ -17,6 +17,7 @@ public class Iterator implements IIterator {
 
     private Service service;
 
+    //constructeur
     public Iterator() {
         value = 0;
     }
@@ -30,14 +31,19 @@ public class Iterator implements IIterator {
     public void setValue(int _value) {
         value = _value;
     }
-
+    //iteration of the service copies 
     @Override
     public void plus(){
-        System.out.println(this + " -> before : " + value);
+        //debug
+    	System.out.println(this + " -> before : " + value);
+        //increment value
         value++;
+        //retrieve the copies
         List<Remote> copies = service.getCopies();
+        //if there are any :
         if(!copies.isEmpty()){
             Iterator tmp;
+            //foreach copy : set the new value
             for(int i = 0; i < copies.size(); i++){
                 tmp = (Iterator) copies.get(i);
                 tmp.setValue(value);
