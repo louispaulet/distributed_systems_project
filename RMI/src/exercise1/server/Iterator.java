@@ -9,7 +9,7 @@ import java.security.Provider;
 import java.util.List;
 
 /**
- * Contains the usual methods and Plus() which increements the value of all copies
+ * Contains the usual methods and Plus() which increments the value of all copies
  */
 public class Iterator implements IIterator {
 

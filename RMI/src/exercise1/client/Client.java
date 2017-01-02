@@ -11,14 +11,7 @@ import exercise1.LocateGlobalRegistry;
 import exercise1.Sorter;
 import exercise1.server.Iterator;
 
-/**
- * Client program.
- *
- * Note: For the the client to retrieve the stub of the remote object, it needs
- * to know: (1) what the name of the object is, (2) which machine hosts the
- * remote object.
- *
- */
+
 public class Client {
 
   //

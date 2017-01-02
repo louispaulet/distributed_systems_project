@@ -17,9 +17,7 @@ import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RemoteRef;
 import java.rmi.server.UnicastRemoteObject;
 
-/**
- * Created by Quentin on 12/12/2016.
- */
+
 public final class LocateGlobalRegistry {
 
     private static String GLOBAL_REGISTRY = "Global";
